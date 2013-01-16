@@ -1,0 +1,13 @@
+{
+  "name": "engine.ns.io-client",
+  "repo": "pokermania/engine.ns.io-client",
+  "version": "0.4.0",
+  "dependencies": {
+    "pokermania/engine.ns.io-base": "*",
+    "pokermania/engine.io-client": "*"
+  },
+  "main": "lib/engine.ns.io-client.js",
+  "scripts": [
+    "lib/engine.ns.io-client.js"
+  ]
+}
