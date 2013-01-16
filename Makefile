@@ -1,12 +1,10 @@
 REPORTER = dot
 TESTS = $(find ./test -type f -name '*.js' ! -name 'common.js')
 
-build: components compile
+build: components
+	@coffee -c lib/*.coffee
 	@component build --standalone nsio
 	@mv build/build.js build/engine.ns.io-client.js
-
-compile: lib
-	@coffee -c lib/*.coffee
 
 components: component.json
 	@component install --dev
