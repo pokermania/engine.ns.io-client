@@ -1,8 +1,8 @@
 REPORTER = dot
 TESTS = $(find ./test -type f -name '*.js' ! -name 'common.js')
 
-COFFEE=$(shell readlink -f node_modules/.bin/coffee)
-COMPONENT=$(shell readlink -f node_modules/.bin/component)
+COFFEE=$(shell which coffee || readlink -f node_modules/.bin/coffee)
+COMPONENT=$(shell which component || readlink -f node_modules/.bin/component)
 
 build: components
 	@$(COFFEE) -c lib/*.coffee
