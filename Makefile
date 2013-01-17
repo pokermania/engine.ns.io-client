@@ -1,13 +1,16 @@
 REPORTER = dot
 TESTS = $(find ./test -type f -name '*.js' ! -name 'common.js')
 
+COFFEE=$(shell readlink -f node_modules/.bin/coffee)
+COMPONENT=$(shell readlink -f node_modules/.bin/component)
+
 build: components
-	@coffee -c lib/*.coffee
-	@component build --standalone nsio
+	@$(COFFEE) -c lib/*.coffee
+	@$(COMPONENT) build --standalone nsio
 	@mv build/build.js build/engine.ns.io-client.js
 
 components: component.json
-	@component install --dev
+	@$(COMPONENT) install --dev
 
 clean:
 	rm -fr components
