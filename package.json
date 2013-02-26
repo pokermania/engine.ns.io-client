@@ -10,7 +10,5 @@
       , "debug": "git://github.com/tuco86/debug.git"
     }
   , "devDependencies": {
-        "browserify": "*"
-      , "ifnodeify": "git://github.com/ruxkor/node-ifnodeify.git"
     }
 }

@@ -1,6 +1,7 @@
 REPORTER = dot
-TESTS = $(find ./test -type f -name '*.js' ! -name 'common.js')
+TESTS = $(shell find ./test -type f -name '*.js' ! -name 'common.js')
 
+MOCHA=$(shell which mocha || readlink -f node_modules/.bin/mocha)
 COFFEE=$(shell which coffee || readlink -f node_modules/.bin/coffee)
 COMPONENT=$(shell which component || readlink -f node_modules/.bin/component)
 
@@ -13,10 +14,10 @@ components: component.json
 	@$(COMPONENT) install --dev
 
 clean:
-	rm -fr components
+	@rm -fr components
 
 test:
-	mocha \
+	@$(MOCHA) \
 		--reporter $(REPORTER) \
 		$(TESTS)
 
